@@ -12,7 +12,7 @@ The sniffle sound event detection is based on the [BEATs](https://arxiv.org/abs/
 
 The pre-trained BEATs model is combined with a [multilayer perceptron (MLP)](https://en.wikipedia.org/wiki/Multilayer_perceptron) head, which is fine-tuned to act as a binary "sniffle" / "no sniffle" classifier on the [FluSense](https://dl.acm.org/doi/10.1145/3381014) dataset available e.g. at https://huggingface.co/datasets/vtsouval/flusense/tree/main
 
-With a 80/20 training/validation split of the 1400+ FluSense dataset samples with 6 different classes, an accuracy of 0.985 on the validation set achieved after 3 epochs on the binary sniffle classifying task. The result is stored in `training_checkpoints/sniffle_head_3epochs.pt`. Further training seemed to result in over-fitting, and worse performance on real-world testing outside of the test data set. (The training can be repeated using the included script `sniffle_detect_and_train.py` by passing the parameter `--mode train`)
+With a 80/20 training/validation split of the 1400+ FluSense dataset samples with 6 different classes, an accuracy of 0.985 on the validation set was achieved after 3 epochs on the binary sniffle classifying task. The result is stored in `training_checkpoints/sniffle_head_3epochs.pt`. Further training seemed to result in over-fitting, and worse performance on real-world testing outside of the test data set. (The training can be repeated using the included script `sniffle_detect_and_train.py` by passing the parameter `--mode train`)
 
 The classifier analysis happens in 200ms minimum length windows, but by analyzing in overlapping windows hops, a better temporal resolution of 50ms is achieved.
 
@@ -56,7 +56,7 @@ Modifying FCPXML to remove sniffle segments...
 Modified 1 clip(s)
 Recalculating offsets for continuity...
 
-✓ Saved modified FCPXML to: /Users/mattipesonen/Desktop/FCPXML_no_sniffles.fcpxmld/Info.fcpxml
+✓ Saved modified FCPXML to: /Users/mpesonen/Desktop/FCPXML_no_sniffles.fcpxmld/Info.fcpxml
 ```
 
 Example of running detection only - outputs JSON to stdout:
