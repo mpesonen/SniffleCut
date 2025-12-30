@@ -4,6 +4,8 @@ AI-powered sniffle sound event detection and automated sniffle removal script fo
 
 ## Demo
 
+https://github.com/user-attachments/assets/e0ae92cc-c888-4a64-bf53-f27850b0f2fa
+
 ## Background
 
 The sniffle sound event detection is based on the [BEATs](https://arxiv.org/abs/2212.09058) implementation found from https://github.com/microsoft/unilm/tree/master/beats
