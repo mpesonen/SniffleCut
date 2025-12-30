@@ -15,13 +15,13 @@ from urllib.parse import unquote, urlparse
 
 # Configuration
 EPS = 0.10  # Pre/post cut duration in seconds (padding around sniffles)
-THRESHOLD = 0.8  # Probability threshold for sniffle detection
+THRESHOLD = 0.9  # Probability threshold for sniffle detection
 
 # Get script directory and project paths
 SCRIPT_DIR = Path(__file__).parent
 PROJECT_ROOT = SCRIPT_DIR
 SNIFFLE_DETECT_PATH = PROJECT_ROOT / "sniffle_detect_and_train.py"
-SNIFFLE_HEAD_PATH = PROJECT_ROOT / "training_checkpoints" / "sniffle_head_4epochs.pt"
+SNIFFLE_HEAD_PATH = PROJECT_ROOT / "training_checkpoints" / "sniffle_head_3epochs.pt"
 
 
 def parse_timecode(timecode_str):

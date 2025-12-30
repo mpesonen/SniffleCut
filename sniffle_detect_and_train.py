@@ -380,7 +380,7 @@ def inference_sniffle_head(
     Args:
         wav_path: Path to WAV file. Defaults to ../audio_files/sniffle_test.wav relative to script.
         threshold: Probability threshold for sniffle vs no sniffle.
-        head_checkpoint: Path to trained sniffle head weights. Defaults to ../training_checkpoints/sniffle_head_4epochs.pt relative to script.
+        head_checkpoint: Path to trained sniffle head weights. Defaults to ../training_checkpoints/sniffle_head_3epochs.pt relative to script.
         window_ms: Internal window length in milliseconds (min 200 ms for BEATs).
         hop_ms: Hop size between window starts in milliseconds (default 50 ms).
     
@@ -389,7 +389,7 @@ def inference_sniffle_head(
     """
     # Set defaults relative to script directory if not provided
     if head_checkpoint is None:
-        head_checkpoint = str(SCRIPT_DIR / "training_checkpoints" / "sniffle_head_4epochs.pt")
+        head_checkpoint = str(SCRIPT_DIR / "training_checkpoints" / "sniffle_head_3epochs.pt")
     
     # Load sniffle head (cached - only loads once per checkpoint path)
     sniffle_head = _get_cached_sniffle_head(head_checkpoint)
@@ -499,7 +499,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "--head_checkpoint",
         type=str,
-        default=str(SCRIPT_DIR / "training_checkpoints" / "sniffle_head_4epochs.pt"),
+        default=str(SCRIPT_DIR / "training_checkpoints" / "sniffle_head_3epochs.pt"),
         help="Path to trained sniffle head weights."
     )
     parser.add_argument("--verbose", "-v", action="store_true", help="Enable verbose logging (messages go to STDERR).")

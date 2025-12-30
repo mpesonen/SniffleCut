@@ -8,9 +8,9 @@ AI-powered sniffle sound event detection and automated sniffle removal script fo
 
 The sniffle sound event detection is based on the [BEATs](https://arxiv.org/abs/2212.09058) implementation found from https://github.com/microsoft/unilm/tree/master/beats
 
-The pre-trained BEATs model is combined with a [multilayer perceptron (MLP)](https://en.wikipedia.org/wiki/Multilayer_perceptron) head, which is fine-tuned to be a binary "sniffle" / "no sniffle" classifier on the [FluSense](https://dl.acm.org/doi/10.1145/3381014) dataset available e.g. at https://huggingface.co/datasets/vtsouval/flusense/tree/main
+The pre-trained BEATs model is combined with a [multilayer perceptron (MLP)](https://en.wikipedia.org/wiki/Multilayer_perceptron) head, which is fine-tuned to act as a binary "sniffle" / "no sniffle" classifier on the [FluSense](https://dl.acm.org/doi/10.1145/3381014) dataset available e.g. at https://huggingface.co/datasets/vtsouval/flusense/tree/main
 
-With a 80/20 training/validation split of the 1400+ FluSense dataset samples with 6 different classes, an accuracy of 0.9850 on the validation set achieved after 4 epochs on the binary sniffle classifying task. The result is stored in `training_checkpoints/sniffle_head_4epochs.pt`.
+With a 80/20 training/validation split of the 1400+ FluSense dataset samples with 6 different classes, an accuracy of 0.985 on the validation set achieved after 3 epochs on the binary sniffle classifying task. The result is stored in `training_checkpoints/sniffle_head_3epochs.pt`. Further training seemed to result in over-fitting, and worse performance on real-world testing outside of the test data set. (The training can be repeated using the included script `sniffle_detect_and_train.py` by passing the parameter `--mode train`)
 
 The classifier analysis happens in 200ms minimum length windows, but by analyzing in overlapping windows hops, a better temporal resolution of 50ms is achieved.
 
@@ -34,8 +34,8 @@ FCPXML example:
 
 ```
 SniffleCut % python sniffle_cut_fcpxml.py ~/Desktop/FCPXML.fcpxmld/Info.fcpxml 
-Processing FCPXML: /Users/mattipesonen/Desktop/FCPXML.fcpxmld/Info.fcpxml
-Output will be saved to: /Users/mattipesonen/Desktop/FCPXML_no_sniffles.fcpxmld/Info.fcpxml
+Processing FCPXML: /Users/mpesonen/Desktop/FCPXML.fcpxmld/Info.fcpxml
+Output will be saved to: /Users/mpesonen/Desktop/FCPXML_no_sniffles.fcpxmld/Info.fcpxml
 
 Found 1 asset-clip(s) to process
 
