@@ -6,6 +6,15 @@ AI-powered sniffle sound event detection and automated sniffle removal script fo
 
 https://github.com/user-attachments/assets/e0ae92cc-c888-4a64-bf53-f27850b0f2fa
 
+(Enable audio in video player)
+- Video clip 1: sniffles in audio
+- File > Export to XML
+- Terminal: run `python sniffle_cut_fcpxml.py`
+- Final Cut Pro: File > Import XML
+- Video clip 2: sniffle sections automatically cut out from the video
+
+Demo video is in real-time, run on Macbook Pro M3. Optimally the workflow would be a one-click process, but Final Cut Pro does not seem to allow plugins to execute arbitrary scripts or native code - hence the XML steps.
+
 ## Background
 
 The sniffle sound event detection is based on the [BEATs](https://arxiv.org/abs/2212.09058) implementation found from https://github.com/microsoft/unilm/tree/master/beats
@@ -18,7 +27,7 @@ The classifier analysis happens in 200ms minimum length windows, but by analyzin
 
 ## Installation
 
-UV Python package and project manager setup (activates Python virtual environment)
+[UV Python package and project manager](https://docs.astral.sh/uv/) setup (installs dependencies and activates a Python virtual environment)
 
 ```
 uv venv
@@ -28,7 +37,7 @@ source .venv/bin/activate
 
 ### Other pre-requisites
 
-[FFMpeg](https://www.ffmpeg.org/) should be installed and found in PATH. The FCPXML script extracts the audio from the referenced video clips with FFMpeg.
+[FFMpeg](https://www.ffmpeg.org/) should be installed and found in PATH for direct invocation. The FCPXML script extracts the audio from the referenced video clips with FFMpeg.
 
 ## Usage
 
