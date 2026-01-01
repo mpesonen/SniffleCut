@@ -35,9 +35,13 @@ uv sync
 source .venv/bin/activate
 ```
 
-### Other pre-requisites
+### Pre-requisites
 
 [FFMpeg](https://www.ffmpeg.org/) should be installed and found in PATH for direct invocation. The FCPXML script extracts the audio from the referenced video clips with FFMpeg.
+
+[Git LFS](https://git-lfs.com/) for checking out the large `.pt` model files.
+
+[UV Python package and project manager](https://docs.astral.sh/uv/)
 
 ## Usage
 
